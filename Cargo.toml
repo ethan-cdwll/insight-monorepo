@@ -1,0 +1,59 @@
+[package]
+name = "insight-wallet"
+version = "0.1.0"
+edition = "2021"
+authors = ["Insight Team <team@insight.io>"]
+description = "AI-driven crypto wallet analysis platform"
+
+[dependencies]
+# Web framework
+actix-web = "4.4"
+actix-rt = "2.9"
+actix-cors = "0.6"
+
+# Async
+tokio = { version = "1.34", features = ["full"] }
+futures = "0.3"
+
+# Database
+mongodb = "2.8"
+redis = "0.24"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Blockchain
+solana-sdk = "1.17"
+solana-client = "1.17"
+solana-transaction-status = "1.17"
+
+# AI/ML
+tensorflow = "0.21"
+rust-bert = "0.21"
+
+# Logging & Metrics
+tracing = "0.1"
+tracing-subscriber = "0.3"
+prometheus = "0.13"
+
+# Authentication
+jsonwebtoken = "9.2"
+bcrypt = "0.15"
+
+# Utils
+dotenv = "0.15"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.6", features = ["v4", "serde"] }
+thiserror = "1.0"
+anyhow = "1.0"
+
+[dev-dependencies]
+mockall = "0.12"
+tokio-test = "0.4"
+wiremock = "0.5"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
